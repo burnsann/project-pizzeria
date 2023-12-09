@@ -96,6 +96,7 @@ const select = {
       console.log('Cart button:', thisProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       console.log('Price element:', thisProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion(){
@@ -158,17 +159,20 @@ const select = {
 
       // for every category (param)...
       for(let paramId in thisProduct.data.params) {
-      // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
-      const param = thisProduct.data.params[paramId];
-      console.log(paramId, param);
+        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+        const param = thisProduct.data.params[paramId];
+        console.log(paramId, param);
 
         // for every option in this category
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
           console.log(optionId, option);
-          /* check if optionID in paramId is ticked in formData */
-          if(formData[paramId] && formData[paramId].includes(optionId)){
+
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+
+          /* check if optionID in paramId is selected in formData */
+          if(optionSelected){
             // check if the option is not default
             if(!option.default) {
               // add option price to price variable
@@ -179,6 +183,20 @@ const select = {
             if(option.default) {
               // reduce price variable
               price -=option.price;
+            }
+          }
+
+          /* find image with class matching .paramId-optionId in image div */
+          const optionImage = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
+
+          /* check if the image has been found in formData*/
+          if(optionImage) {
+            if(optionSelected) {
+              /* add the visible class to show image */
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
+            } else {
+              /* Remove image if it's not selected */
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
         }
