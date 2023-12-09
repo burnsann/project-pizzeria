@@ -164,9 +164,23 @@ const select = {
 
         // for every option in this category
         for(let optionId in param.options) {
-        // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
-        const option = param.options[optionId];
-        console.log(optionId, option);
+          // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
+          const option = param.options[optionId];
+          console.log(optionId, option);
+          /* check if optionID in paramId is ticked in formData */
+          if(formData[paramId] && formData[paramId].includes(optionId)){
+            // check if the option is not default
+            if(!option.default) {
+              // add option price to price variable
+              price += option.price;
+            }
+          } else {
+            // check if the option is default and not in formData
+            if(option.default) {
+              // reduce price variable
+              price -=option.price;
+            }
+          }
         }
       }
 
