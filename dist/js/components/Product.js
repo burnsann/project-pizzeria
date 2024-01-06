@@ -15,8 +15,6 @@ class Product{
     thisProduct.initOrderForm();
     thisProduct.initAmountWidget();
     thisProduct.processOrder();
-    console.log('new Product:', thisProduct);
-
   }
 
   renderInMenu(){
@@ -40,13 +38,13 @@ class Product{
   
     thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
     thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
-    console.log('Form:', thisProduct.form);
+    /* console.log('Form:', thisProduct.form); */
     thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
-    console.log('Form inputs:', thisProduct.formInputs);
+    /* console.log('Form inputs:', thisProduct.formInputs); */
     thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
-    console.log('Cart button:', thisProduct.cartButton);
+    /* console.log('Cart button:', thisProduct.cartButton); */
     thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
-    console.log('Price element:', thisProduct.priceElem);
+    /* console.log('Price element:', thisProduct.priceElem); */
     thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
   }
@@ -81,7 +79,7 @@ class Product{
 
   initOrderForm(){
     const thisProduct = this;
-    console.log(thisProduct.initOrderForm);
+    /* console.log(thisProduct.initOrderForm); */
 
     thisProduct.form.addEventListener('submit', function(event){
       event.preventDefault();
@@ -105,7 +103,7 @@ class Product{
     const thisProduct = this;
     // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
     const formData = utils.serializeFormToObject(thisProduct.form);
-    console.log('formData:', formData);
+    /* console.log('formData:', formData); */
 
     // set price to default price
     let price = thisProduct.data.price;
@@ -114,13 +112,13 @@ class Product{
     for(let paramId in thisProduct.data.params) {
       // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
       const param = thisProduct.data.params[paramId];
-      console.log(paramId, param);
+      /* console.log(paramId, param); */
 
       // for every option in this category
       for(let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
         const option = param.options[optionId];
-        console.log(optionId, option);
+        /* console.log(optionId, option); */
 
         const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
@@ -157,12 +155,12 @@ class Product{
 
     // update calculated price in the HTML
     thisProduct.priceSingle = price;
-    console.log('SinglePrice:', thisProduct.priceSingle);
+    /* console.log('SinglePrice:', thisProduct.priceSingle); */
     price *= thisProduct.amountWidget.value;
     thisProduct.priceElem.innerHTML = price;
     thisProduct.price = price;
 
-    console.log(thisProduct.processOrder);
+    /* console.log(thisProduct.processOrder); */
   }
 
   initAmountWidget(){
@@ -208,7 +206,7 @@ class Product{
     const thisProduct = this;
 
     const formData = utils.serializeFormToObject(thisProduct.form);
-    console.log('formData:', formData);
+    /* console.log('formData:', formData); */
 
     const params = {};
 
@@ -216,7 +214,7 @@ class Product{
     for(let paramId in thisProduct.data.params) {
       // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
       const param = thisProduct.data.params[paramId];
-      console.log(paramId, param);
+      /* console.log(paramId, param); */
 
       // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
       params[paramId] = {
@@ -228,7 +226,7 @@ class Product{
       for(let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
         const option = param.options[optionId];
-        console.log(optionId, option);
+        /* console.log(optionId, option); */
 
         const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
@@ -239,7 +237,7 @@ class Product{
         }
       }
     }
-    console.log('Cart product params:', thisProduct.prepareCartProductParams);
+    /* console.log('Cart product params:', thisProduct.prepareCartProductParams); */
     return params;
   }
 }

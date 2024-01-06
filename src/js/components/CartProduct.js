@@ -15,7 +15,6 @@ class CartProduct{
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
     thisCartProduct.initActions();
-    console.log('thisCartProduct:', thisCartProduct);
   }
 
   getElements(element) {
@@ -36,9 +35,7 @@ class CartProduct{
     thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidgetElem);
     thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function () {
       thisCartProduct.amount = thisCartProduct.amountWidget.value;
-      console.log('Ilość:', thisCartProduct.amount);
       thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
-      console.log('Cena:', thisCartProduct.price);
       thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
   });
   }
@@ -53,7 +50,6 @@ class CartProduct{
     });
 
     thisCartProduct.dom.wrapper.dispatchEvent(event);
-    console.log('remove method executed')
   }
 
   initActions(){

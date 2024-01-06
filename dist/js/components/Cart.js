@@ -61,10 +61,8 @@ class Cart{
 
     /* add element to thisCart.dom.productList using appendChild */
     thisCart.dom.productList.appendChild(generatedDOM);
-    console.log('adding product to cart:', menuProduct);
 
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-    console.log('thisCart.products:', thisCart.products);
 
     thisCart.update();
   }
@@ -87,11 +85,6 @@ class Cart{
     } else {
       thisCart.totalPrice = 0;
     }
-
-    console.log('totalNumber:', thisCart.totalNumber);
-    console.log('subtotalPrice:', thisCart.subtotalPrice);
-    console.log('deliveryFee:', deliveryFee);
-    console.log('totalPrice:', thisCart.totalPrice);
 
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
     thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
@@ -151,7 +144,7 @@ class Cart{
     };
     
     fetch(url, options);
-    console.log('Payload:', payload);
+    /* console.log('Payload:', payload); */
   }
 }
 
