@@ -23,12 +23,13 @@ class BaseWidget{
     /* TODO: Add validation */
     if(thisWidget.correctValue !== newValue && thisWidget.isValid(newValue)) {
       thisWidget.correctValue = newValue;
+      thisWidget.announce();
     }
 
     /* thisWidget.value = newValue; */
     /* thisWidget.dom.input.value = thisWidget.value; */
     thisWidget.renderValue();
-    thisWidget.announce();
+    /* thisWidget.announce(); */
   }
 
   setValue(value){

@@ -16,7 +16,7 @@ class AmountWidget extends BaseWidget{ //dopisane extends BaseWidget
     }
     thisWidget.setValue(initialValue); */
     thisWidget.initActions();
-    console.log('AmountWidget', thisWidget);
+    /* console.log('AmountWidget', thisWidget); */
   }
 
   getElements(/* element */) {
