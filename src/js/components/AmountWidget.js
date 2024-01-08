@@ -8,13 +8,13 @@ class AmountWidget extends BaseWidget{ //dopisane extends BaseWidget
 
     thisWidget.getElements(element);
 
-/*     let initialValue;
-    if (thisWidget.input.value !== '') {
-      initialValue = thisWidget.input.value;
+    let initialValue;
+    if (thisWidget.dom.input.value !== '') {
+      initialValue = thisWidget.dom.input.value;
     } else {
       initialValue = settings.amountWidget.defaultValue;
     }
-    thisWidget.setValue(initialValue); */
+    thisWidget.setValue(initialValue);
     thisWidget.initActions();
     /* console.log('AmountWidget', thisWidget); */
   }
