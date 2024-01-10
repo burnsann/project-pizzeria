@@ -3,12 +3,15 @@ export const select = {
     menuProduct: "#template-menu-product",
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
+    home:'#template-home',
     },
     containerOf: {
       menu: '#product-list',
       cart: '#cart',
       pages: '#pages',
       booking: '.booking-wrapper',
+      home:'.home-wrapper',
+      carousel: '.main-carousel',
     },
     all: {
       menuProducts: '#product-list > .product',
@@ -113,7 +116,7 @@ export const settings = {
       tableIdAttribute: 'data-table',
     },
     db: {
-      url: '//localhost:3131',
+      url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
       products: 'products',
       orders: 'orders',
       bookings: 'bookings',
@@ -129,5 +132,6 @@ export const templates = {
     menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
     cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
     bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
+    home: Handlebars.compile(document.querySelector(select.templateOf.home).innerHTML),
   };
 

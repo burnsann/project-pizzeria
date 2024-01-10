@@ -1,0 +1,61 @@
+/* .first-section-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order,
+.booking {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.order,
+.booking,
+div {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-carousel {
+  margin: ($base-size * 6) auto;
+
+  .carousel-cell {
+      margin: 0;
+      padding: 0 $base-size;
+      display: flex;
+      flex-direction: row;
+      gap: ($base-size * 3);
+      justify-content: center;
+      align-items: center;
+
+      .image {
+          width: 194px;
+          height: 194px;
+
+          img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
+      }
+
+      .description {
+          margin: 0px;
+          width: 396px;
+          height: 194px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+
+          p:first-of-type {
+              font-size: ($base-size * 1.5);
+              font-weight: bold;
+          }
+
+          p:last-of-type {
+              font-style: italic;
+          }
+      }
+  }
+} */
