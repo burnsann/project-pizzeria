@@ -52,6 +52,10 @@ export const select = {
       address: '[name="address"]',
       starters: '.checkbox label input',
     },
+    home: {
+      orderLink: '.home-wrapper .order',
+      bookingLink: '.home-wrapper .booking',
+    },
     nav: {
       links: '.main-nav a',
     },
