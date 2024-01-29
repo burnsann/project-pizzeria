@@ -185,6 +185,9 @@ class Booking{
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
     thisBooking.dom.wrapper.addEventListener('updated', function(){
+      for (let table of thisBooking.dom.tables){
+        table.classList.remove(classNames.booking.tableSelected);
+      }
       thisBooking.updateDOM();
     });
 

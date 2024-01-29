@@ -1,15 +1,23 @@
+.home-page {
+    margin: ($base-size * 3.5) auto;
+    padding: ($base-size * 6) ($base-size * 4);
+    background: $color-light;
+    border-bottom: 1px solid lighten($color-dark, 70%);
+    border-radius: $radius;
+}
+
 /* Home top */
 .home-top {
   display: flex;
   flex-wrap: wrap;
-  margin: 40px 0;
+  margin-bottom: 40px;
 }
 
 .order,
 .booking,
 .hours {
-  box-sizing: border-box;
   text-align: center;
+  justify-content: center;
   height: 120px;
   color: $color-light;
   font-family: $font-header;
@@ -23,25 +31,6 @@
     p {
       font-weight: $font-light;
     }
-}
-
-.order,
-.booking {
-  position: relative;
-  overflow: hidden;
-
-  &:hover {
-    p {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  p {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
 }
 
 .order {
@@ -61,9 +50,32 @@
 }
 
 .hours {
-  text-align: center;
   width: 100%;
   background-color: $color-main;
+}
+
+/* Hover effect for ORDER and BOOKING */
+.order,
+.booking {
+  h2 {
+    margin-top: 42px;
+    transition: $transition;
+  }
+  
+  p {
+    opacity: 0;
+    transition: $transition;
+  }
+
+  &:hover {
+    cursor: pointer;
+    h2 {
+      margin-top: 20px;
+    }
+    p {
+      opacity: 1;
+    }
+  }
 }
 
 
@@ -140,7 +152,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: $color-main;
+      color: $color-light;
       font-size: $base-size * 2.5;
       display: none;
     }
@@ -157,6 +169,11 @@
       }
       .galery__icon {
         display: block;
+      }
+      i {
+        &:hover {
+          color: $color-main;
+        }
       }
     }
   }
